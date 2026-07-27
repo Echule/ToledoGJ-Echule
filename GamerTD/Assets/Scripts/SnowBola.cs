@@ -7,6 +7,7 @@ public class SnowBola : MonoBehaviour
     public float range = 1;
     private float timer;
     public int damage = 5;
+    public float knockbackForce = 5;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,7 +31,8 @@ public class SnowBola : MonoBehaviour
     {
         if(collision.gameObject.GetComponent<EnemyHP>())
         {
-            collision.gameObject.GetComponent<EnemyHP>().health -= damage;  
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.right * knockbackForce, ForceMode2D.Impulse);
+            collision.gameObject.GetComponent<EnemyHP>().TakeDamage(damage);
             Destroy(gameObject);
         }
     }

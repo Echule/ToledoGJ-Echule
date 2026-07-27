@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class IglooHP : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class IglooHP : MonoBehaviour
     public int health;
     public int maxHealth = 100;
     public Slider slider;
+    public GameObject popUpDamagePrefab;
+    public TMP_Text popUpText;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,8 +19,13 @@ public class IglooHP : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
+        health -= damage;
+        popUpText.text = damage.ToString();
+        Instantiate(popUpDamagePrefab, transform.position, Quaternion.identity);
+        
+
         slider.value = health;
         if(health <= 0)
         {

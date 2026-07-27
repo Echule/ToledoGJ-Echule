@@ -181,4 +181,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SnowBola
   bolaRb: {fileID: 4802343758682345632}
-  speed: 2.5
+  speed: 4
+  range: 1.5
+  damage: 5
+  knockbackForce: 5

@@ -6,7 +6,7 @@ public class enemymove : MonoBehaviour
     public float speed;
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         EnemyRb.linearVelocity = Vector2.left * speed;
     }
